@@ -8,6 +8,8 @@ import org.apache.logging.log4j.core.*;
 import utility.Runner;
 import utility.StandardConsole;
 
+import java.util.Scanner;
+
 public class Main {
     private static final int PORT=14151;
     private static final Logger LOGGER = (Logger) LogManager.getLogger("Main");
@@ -38,7 +40,17 @@ public class Main {
         var runner = new Runner(console, commandManager);
 
         var tcpserver = new TCPServer(PORT, runner::executeCommand);
+        new Thread(() -> {
+            Scanner in = new Scanner(System.in);
+            while (true) {
+                System.out.print("$ ");
+                if (in.nextLine().equals("save"))
+                    commandManager.getCommands().get("save").execute(new String[]{"save", ""}, null);
+            }
+        }).start();
         tcpserver.start();
+
+
     }
 }
 

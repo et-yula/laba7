@@ -11,82 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27dbaf72-30a0-4fd5-99cc-95d840b6a20c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/client_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/server_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Add.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/AddIfMax.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Clear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Describable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Executable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/ExecuteScript.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Exit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Help.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/MinByMinimalPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/PrintAscending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/RemoveById.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/RemoveGreater.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/RemoveLower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Show.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/SumOfMinimalPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Update.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/managers/ClientReceivingManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/managers/CommandManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/managers/TCPClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/managers/TCPManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/utility/Ask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/utility/Runner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Add.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/AddIfMax.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Clear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Describable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Executable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/MinByMinimalPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/PrintAscending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/RemoveById.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/RemoveGreater.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/RemoveLower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Save.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Show.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/SumOfMinimalPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Update.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/CollectionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/CommandManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/DumpManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/ReceivingManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/SendingManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/TCPServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/utility/ClientConsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/utility/Runner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/models/Coordinates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/models/Difficulty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/models/LabWork.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/models/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/models/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/utility/Console.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/utility/Element.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/utility/Response.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/utility/StandardConsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/utility/Validatable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/utility/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/utility/Runner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +57,7 @@
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.archetype.catalogs"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -192,7 +119,16 @@
       <workItem from="1683292582081" duration="4677000" />
       <workItem from="1683297670706" duration="1072000" />
       <workItem from="1683311478016" duration="2287000" />
+      <workItem from="1683363903581" duration="3258000" />
     </task>
+    <task id="LOCAL-00001" summary="programming laboratory №6">
+      <created>1683364002099</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683364002099</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,16 +136,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/utility/Runner.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="programming laboratory №6" />
+    <option name="LAST_COMMIT_MESSAGE" value="programming laboratory №6" />
   </component>
 </project>

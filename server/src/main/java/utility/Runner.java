@@ -34,17 +34,13 @@ public class Runner {
     }
 
     public Object executeCommand(String s, Object obj) {
-        try {
-            String[] userCommand = {"", ""};
-            userCommand = (s.replace('\n',' ').replace('\r',' ') + " ").split(" ", 2);
-            userCommand[1] = userCommand[1].trim();
-            System.out.println("$ "+userCommand[0]);
+        String[] userCommand = {"", ""};
+        userCommand = (s.replace('\n',' ').replace('\r',' ') + " ").split(" ", 2);
+        userCommand[1] = userCommand[1].trim();
+        System.out.println("$ "+userCommand[0]);
 
-            commandManager.addToHistory(userCommand[0]);
+        commandManager.addToHistory(userCommand[0]);
 
-            return launchCommand(userCommand, obj);
-        } finally {
-            commandManager.getCommands().get("save").execute(new String[]{"save", ""}, null);
-        }
+        return launchCommand(userCommand, obj);
     }
 }
