@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="client:jar" />
+      <artifact name="server:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="27dbaf72-30a0-4fd5-99cc-95d840b6a20c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/client_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/server_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Add.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/AddIfMax.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Clear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Describable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Executable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/ExecuteScript.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Exit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Help.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/MinByMinimalPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/PrintAscending.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/RemoveById.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/RemoveGreater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/RemoveLower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Show.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/SumOfMinimalPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/commands/Update.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/managers/ClientReceivingManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/managers/CommandManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/managers/TCPClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/managers/TCPManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/utility/Ask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/utility/Runner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Add.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/AddIfMax.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Clear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Describable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Executable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/MinByMinimalPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/PrintAscending.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/RemoveById.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/RemoveGreater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/RemoveLower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Save.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Show.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/SumOfMinimalPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/Update.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/CollectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/CommandManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/DumpManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/ReceivingManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/SendingManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/TCPServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/utility/ClientConsole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/utility/Runner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/models/Coordinates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/models/Difficulty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/models/LabWork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/models/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/models/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/utility/Console.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/utility/Element.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/utility/Response.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/utility/StandardConsole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/utility/Validatable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/Temp1_PROG (3).zip/LAB6_client/commands/DefaultCommand.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OeMfDDGWz1VFbZLJsqzWdt4tLN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "D:/laba6",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.archetype.catalogs"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laba6\server" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="27dbaf72-30a0-4fd5-99cc-95d840b6a20c" name="Changes" comment="" />
+      <created>1681916697048</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681916697048</updated>
+      <workItem from="1681916698486" duration="60000" />
+      <workItem from="1682013437505" duration="501000" />
+      <workItem from="1682416756549" duration="777000" />
+      <workItem from="1682541823096" duration="1386000" />
+      <workItem from="1682619122055" duration="628000" />
+      <workItem from="1682938969453" duration="2112000" />
+      <workItem from="1682965795365" duration="7251000" />
+      <workItem from="1682975409780" duration="271000" />
+      <workItem from="1682975721530" duration="18000" />
+      <workItem from="1683023355828" duration="1909000" />
+      <workItem from="1683117809409" duration="5436000" />
+      <workItem from="1683212945009" duration="2869000" />
+      <workItem from="1683215943845" duration="17274000" />
+      <workItem from="1683283126807" duration="746000" />
+      <workItem from="1683285109097" duration="106000" />
+      <workItem from="1683285225262" duration="1949000" />
+      <workItem from="1683288413218" duration="13000" />
+      <workItem from="1683288436757" duration="30000" />
+      <workItem from="1683288480416" duration="91000" />
+      <workItem from="1683289189721" duration="518000" />
+      <workItem from="1683289724224" duration="2845000" />
+      <workItem from="1683292582081" duration="4677000" />
+      <workItem from="1683297670706" duration="1072000" />
+      <workItem from="1683311478016" duration="2287000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/utility/Runner.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
