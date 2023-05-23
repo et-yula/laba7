@@ -44,8 +44,11 @@ public class Main {
             Scanner in = new Scanner(System.in);
             while (true) {
                 System.out.print("$ ");
-                if (in.nextLine().equals("save"))
+                var t = in.nextLine();
+                if (t.equals("save"))
                     commandManager.getCommands().get("save").execute(new String[]{"save", ""}, null);
+                if (t.equals("exit"))
+                    System.exit(0);
             }
         }).start();
         tcpserver.start();

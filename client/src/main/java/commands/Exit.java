@@ -16,7 +16,7 @@ public class Exit extends Command {
      */
     @Override
     public boolean execute(String[] arguments) {
-        if (arguments[1].isEmpty()) {
+        if (!arguments[1].isEmpty()) {
             console.println("Неправильное количество аргументов!");
             console.println("Использование: '" + getName() + "'");
             return false;
