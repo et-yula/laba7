@@ -21,10 +21,10 @@ public class SendingManager {
     private final int PACKET_SIZE = 1024;
     private final int DATA_SIZE = PACKET_SIZE - 1;
 
-    public class senderClass extends RecursiveTask<Object> {
+    public class SenderClass extends RecursiveTask<Object> {
         private final SocketChannel socketChannel;
         private final Object obj;
-        public senderClass(SocketChannel socketChannel, Object obj) {
+        public SenderClass(SocketChannel socketChannel, Object obj) {
             this.socketChannel = socketChannel;
             this.obj = obj;
         }
@@ -75,6 +75,6 @@ public class SendingManager {
     }
 
     public void send(SocketChannel socketChannel, Object obj) {
-        forkJoinPool.invoke(new senderClass(socketChannel, obj));
+        forkJoinPool.invoke(new SenderClass(socketChannel, obj));
     }
 }
