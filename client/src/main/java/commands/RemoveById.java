@@ -32,7 +32,7 @@ public class RemoveById extends Command {
         long id = -1;
         try { id = Long.parseLong(arguments[1].trim()); } catch (NumberFormatException e) { console.println("ID не распознан"); return false; }
 
-        console.println(tcpManager.sendAndGetMassage("remove_by_id "+String.valueOf(id)));
+        console.println(tcpManager.sendAndGetMessage("remove_by_id "+String.valueOf(id)));
         return true;
     }
 }

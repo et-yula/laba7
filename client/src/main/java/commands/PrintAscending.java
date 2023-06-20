@@ -26,7 +26,7 @@ public class PrintAscending extends Command {
             console.println("Использование: '" + getName() + "'");
             return false;
         }
-        console.println(tcpManager.sendAndGetMassage("print_ascending"));
+        console.println(tcpManager.sendAndGetMessage("print_ascending"));
         return true;
     }
 }

@@ -26,7 +26,7 @@ public class Response implements Serializable {
     }
 
     public int getExitCode() { return exitCode; }
-    public String getMassage() { return message; }
+    public String getMessage() { return message; }
     public Object getResponseObj() { return responseObj; }
     public String toString() { return String.valueOf(exitCode)+";"+message+";"+(responseObj==null?"null":responseObj.toString()); }
 }

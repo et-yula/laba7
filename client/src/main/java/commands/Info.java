@@ -26,7 +26,7 @@ public class Info extends Command {
             console.println("Использование: '" + getName() + "'");
             return false;
         }
-        console.println(tcpManager.sendAndGetMassage("info"));
+        console.println(tcpManager.sendAndGetMessage("info"));
         return true;
     }
 }

@@ -15,6 +15,15 @@ public class Coordinates implements Validatable, Serializable {
         this.x=x;
         this.y=y;
     }
+
+    public Integer getX() {
+        return x;
+    }
+
+    public Long getY() {
+        return y;
+    }
+
     public Coordinates(String s){
         try {
             try { this.x = Integer.parseInt(s.split(";")[0]); } catch (NumberFormatException e) { }

@@ -12,7 +12,7 @@ public class RemoveLower extends Command {
     private final Console console;
     private final TCPManager tcpManager;
     public RemoveLower(Console console, TCPManager tcpManager){
-        super("remove_lower {element}", " удалить из коллекции все элементы, меньшие, чем заданный");
+        super("remove_lower {element}", "удалить из коллекции все элементы, меньшие, чем заданный");
         this.console = console;
         this.tcpManager = tcpManager;
     }
@@ -33,7 +33,7 @@ public class RemoveLower extends Command {
             console.println("* Введите лабораторную работу для сравнения:");
             LabWork receivedLabWork = Ask.askLabWork(console);
             if (receivedLabWork != null && receivedLabWork.validate()) {
-                console.println(tcpManager.sendAndGetMassage("remove_lower", receivedLabWork));
+                console.println(tcpManager.sendAndGetMessage("remove_lower", receivedLabWork));
                 return true;
             } else {
                 console.println("Поля лабораторной работы не валидны! Лабораторная работа не сравнима!");

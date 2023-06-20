@@ -1,34 +1,38 @@
 package managers;
 
 import models.LabWork;
+import utility.User;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListSet;
+
 /**
- * оперирует коллекцией
+ * класс, оперирующий коллекцией
  */
 public class CollectionManager {
     private int currentId = 1;
-    private Map<Integer, LabWork> labWorks = new HashMap<>();
+    private ConcurrentHashMap<LabWork,Long> userIdMap = new ConcurrentHashMap<>();
 
-    private HashSet<LabWork> collection = new HashSet<>();
+    private ConcurrentSkipListSet<LabWork> collection = new ConcurrentSkipListSet<>(Comparator.comparingInt(LabWork::getId));
     private LocalDateTime lastInitTime;
     private LocalDateTime lastSaveTime;
     private final DumpManager dumpManager;
+    private final UserManager userManager;
 
-    public CollectionManager(DumpManager dumpManager) {
+    public CollectionManager(DumpManager dumpManager, UserManager userManager) {
         this.lastInitTime = null;
         this.lastSaveTime = null;
         this.dumpManager = dumpManager;
+        this.userManager=userManager;
     }
 
     /**
      * @return коллекция
      */
     public HashSet <LabWork> getCollection(){
-        return collection;
+        return new HashSet<>(Arrays.asList(collection.toArray(new LabWork[]{})));
     }
 
     /**
@@ -46,11 +50,49 @@ public class CollectionManager {
     }
 
     /**
-     * сохраняет коллекцию в файл
+     * удаляет лабораторную работу по id
+     * @param id - id лабораторной работы
+     * @param user - удаляющий пользователь
+     * @return успешность выполнения
      */
-    public void saveCollection() {
-        dumpManager.writeCollection(collection);
-        lastSaveTime = LocalDateTime.now();
+    public boolean remove(int id, User user) {
+        if (user == null) return false;
+        var labWork = byId(id);
+        if (labWork == null) return false;
+        if (!(userIdMap.get(labWork)==user.getID())) return false;
+        if (!dumpManager.removeLabWork(id)) return false;
+        collection.remove(labWork);
+        return true;
+    }
+
+    /**
+     * обновляет лабораторную работу по id
+     * @param labWork - лабораторная работа
+     * @param user - пользователь
+     * @return успешность выполнения
+     */
+    public boolean update(LabWork labWork, User user) {
+        if (labWork == null || user == null) return false;
+        var oldLabWork = byId(labWork.getId());
+        if (oldLabWork == null) return false;
+        if (!(userIdMap.get(oldLabWork)==user.getID())) return false;
+        if (!dumpManager.updateLabWork(labWork)) return false;
+        collection.remove(oldLabWork);
+        collection.add(labWork);
+        userIdMap.put(labWork, user.getID());
+        return true;
+    }
+
+    /**
+     * загружает коллекцию из базы данных
+     */
+    public void load() {
+        collection.clear();
+        userIdMap.clear();
+        for (var labWorkAndUser: dumpManager.selectLabWork()) {
+            collection.add(labWorkAndUser.labwork);
+            userIdMap.put(labWorkAndUser.labwork, labWorkAndUser.user);
+        }
     }
 
     /**
@@ -58,42 +100,25 @@ public class CollectionManager {
      * @param labWork - экземпляр лабораторной работы
      * @return успешность выполнения команды
      */
-    public boolean add(LabWork labWork){
-        if (labWork == null) return false;
-        labWorks.put(labWork.getId(), labWork);
+    public boolean add(LabWork labWork, User user){
+        if (labWork == null || user == null) {
+            return false;
+        }
+        if (!dumpManager.insertLabWork(labWork, user.getID())) {
+            return false;
+        }
         collection.add(labWork);
+        userIdMap.put(labWork, user.getID());
         return true;
-    }
-
-    public LabWork byId(int id) {
-        return labWorks.get(id);
-    }
-
-
-    public int getFreeId() {
-        while (byId(currentId) != null)
-            if (++currentId < 0)
-                currentId = 1;
-        return currentId;
     }
 
     /**
-     * загружает коллекцию из файла
-     * @return true в случае успеха
+     * получаем лабораторную работу по id
+     * @param id - id лабораторной работы
+     * @return лабораторная работа
      */
-    public boolean loadCollection() {
-        labWorks.clear();
-        collection = (HashSet<LabWork>) dumpManager.readCollection();
-        lastInitTime = LocalDateTime.now();
-        for (var e : collection)
-            if (byId(e.getId()) != null) {
-                collection.clear();
-                return false;
-            } else {
-                if (e.getId()>currentId) currentId = e.getId();
-                labWorks.put(e.getId(), e);
-            }
-        return true;
+    public LabWork byId(int id) {
+        for (var labWork: collection.toArray()) if (((LabWork)labWork).getId()==id) return (LabWork) labWork; return null;
     }
 
     @Override
@@ -107,7 +132,3 @@ public class CollectionManager {
         return info.toString().trim();
     }
 }
-
-
-
-

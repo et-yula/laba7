@@ -26,7 +26,7 @@ public class MinByMinimalPoint extends Command {
             console.println("Использование: '" + getName() + "'");
             return false;
         }
-        console.println(tcpManager.sendAndGetMassage("min_by_minimal_point"));
+        console.println(tcpManager.sendAndGetMessage("min_by_minimal_point"));
         return true;
     }
 }

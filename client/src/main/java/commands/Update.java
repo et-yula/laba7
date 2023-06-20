@@ -33,7 +33,7 @@ public class Update extends Command {
             long id = -1;
             try { id = Long.parseLong(arguments[1].trim()); } catch (NumberFormatException e) { console.println("ID не распознан"); return false; }
 
-            if (!tcpManager.sendAndGetMassage("update "+String.valueOf(id)).equals("OK")) {//collectionManager.byId(id) == null || !collectionManager.getCollection().contains(collectionManager.byId(id))) {
+            if (!tcpManager.sendAndGetMessage("update "+ id).equals("OK")) {
                 console.println("Несуществующий ID");
                 return false;
             }
@@ -41,7 +41,7 @@ public class Update extends Command {
             console.println("* Создание новой лабораторной работы:");
             var labWork = Ask.askLabWork(console);
             if (labWork != null && labWork.validate()) {
-                console.println(tcpManager.sendAndGetMassage("update "+String.valueOf(id),labWork));
+                console.println(tcpManager.sendAndGetMessage("update "+ id,labWork));
                 return true;
             } else {
                 console.println("Поля лабораторной работы не валидны! Лабораторная работа не создана!");

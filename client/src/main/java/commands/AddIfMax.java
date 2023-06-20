@@ -12,7 +12,7 @@ public class AddIfMax extends Command{
     private final TCPManager tcpManager;
 
     public AddIfMax(Console console, TCPManager tcpManager) {
-        super("add {element}", "добавить новый элемент в коллекцию");
+        super("AddIfMax {element}", "добавить новый элемент в коллекцию");
         this.console = console;
         this.tcpManager = tcpManager;
     }
@@ -34,7 +34,7 @@ public class AddIfMax extends Command{
             LabWork labWork = Ask.askLabWork(console);
 
             if (labWork != null && labWork.validate()) {
-                console.println(tcpManager.sendAndGetMassage("add_if_max", labWork));
+                console.println(tcpManager.sendAndGetMessage("add_if_max", labWork));
                 return true;
             }
             console.println("Поля лабораторной работы не валидны! Лабораторная работа не создана!");

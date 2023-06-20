@@ -35,7 +35,7 @@ public class Add extends Command {
             LabWork labWork = Ask.askLabWork(console);
 
             if (labWork != null && labWork.validate()) {
-                console.println(tcpManager.sendAndGetMassage("add", labWork));
+                console.println(tcpManager.sendAndGetMessage("add", labWork));
                 return true;
             }
             console.println("Поля лабораторной работы не валидны! Лабораторная работа не создана!");

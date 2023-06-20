@@ -26,7 +26,7 @@ public class SumOfMinimalPoint extends Command {
             console.println("Использование: '" + getName() + "'");
             return false;
         }
-        console.println(tcpManager.sendAndGetMassage("sum_of_minimal_point"));
+        console.println(tcpManager.sendAndGetMessage("sum_of_minimal_point"));
         return true;
     }
 }

@@ -3,6 +3,7 @@ package commands;
 import managers.CollectionManager;
 import models.LabWork;
 import utility.Response;
+import utility.User;
 
 /**
  *  добавляет новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции
@@ -20,7 +21,7 @@ public class AddIfMax extends Command {
      * @return успешность выполнения команды
      */
     @Override
-    public Response execute(String[] arguments, Object obj) {
+    public Response execute(String[] arguments, Object obj, User user) {
         if (!arguments[1].isEmpty()) {
             return new Response(400, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
         }
@@ -37,8 +38,11 @@ public class AddIfMax extends Command {
                 return new Response(400,"Коллекция пуста!");
             }
             if (receivedLabWork.getMinimalPoint() > maxMinimalPoint) {
-                collectionManager.add(receivedLabWork);
-                return new Response("Лабораторная работа успешно добавлена!");
+                if (collectionManager.add(receivedLabWork, user)){
+                    return new Response("Лабораторная работа успешно добавлена!");
+                } else {
+                    return new Response(500, "Access error");
+                }
             } else {
                 return new Response(400,"Лабораторная работа не добавлена, так как ее значение не превышает значение наибольшего элемента этой коллекции");
             }

@@ -165,6 +165,7 @@ public class Ask {
                 var line = console.readln().trim();
                 if (line.equals("exit")) throw new AskBreak();
                 try { birthday = LocalDate.parse(line, DateTimeFormatter.ISO_LOCAL_DATE); break; } catch (DateTimeParseException e) { }
+                try { birthday = LocalDate.parse(line+"T00:00:00.0000", DateTimeFormatter.ISO_DATE_TIME); break; } catch (DateTimeParseException e) { }
                 console.print("person.birthday: ");
             }
             console.print("person.passportID: ");

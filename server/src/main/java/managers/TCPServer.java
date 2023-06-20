@@ -3,26 +3,25 @@ package managers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.InetSocketAddress;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
-import java.util.Arrays;
+import java.nio.channels.*;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Objects;
+import java.util.TreeMap;
+import java.util.concurrent.RecursiveTask;
 
 public class TCPServer {
     private static final Logger LOGGER = (Logger) LogManager.getLogger("managers.TCPServer");
-    public interface TCPExecute { Object Execute(String s, Object o); }
+    public interface TCPExecute { public Object Execute(String s, Object o, String login, String pass); }
     private int port;
     private HashSet<SocketChannel> sessions;
     private ReceivingManager receivingManager = new ReceivingManager();
     private SendingManager sendingManager = new SendingManager();
     private Selector selector;
-    private final TCPExecute executer;
+    private TCPExecute executer;
+
 
     public TCPServer(int port, TCPExecute obj) {
         this.port = port;
@@ -58,37 +57,9 @@ public class TCPServer {
                     SelectionKey key = keys.next();
                     keys.remove();
                     if (!key.isValid()) continue;
-                    if (key.isAcceptable()) {accept(key);
-                    }else if (key.isReadable()) {
-                        var result = receivingManager.read(key);
-                        if(result == null)
-                            continue;
-                        var res = result;
-                        int p = -1;
-                        if (res == null)
-                            continue;
-                        for (int i = res.length - 1; i > -1; i--) {
-                            if (res[i] != 0) {
-                                p = i;
-                                break;
-                            }
-                        }
-                        var cutres = Arrays.copyOfRange(res, 0, p+1);
-
-                        try(var command = new ObjectInputStream(new ByteArrayInputStream(cutres))){
-                            String k = command.readUTF();
-                            Object obj = command.readObject();
-                            var ret = executer.Execute(k, obj);
-                            try(var baos = new ByteArrayOutputStream();
-                                var a=new ObjectOutputStream(baos)) {
-                                a.writeObject(ret);
-                                sendingManager.send((SocketChannel) key.channel(), baos.toByteArray());
-                            }
-                        } catch (Exception e) {
-                            LOGGER.error(e.getMessage());
-                            sendingManager.send((SocketChannel) key.channel(), "503".getBytes());
-                        }
-                    }
+                    if (key.isAcceptable()) {accept(key);}
+                    else if (key.isReadable()) {processingKey(key);}
+                    Thread.sleep(200);
                 }
             }
         } catch (IOException e) {
@@ -98,9 +69,31 @@ public class TCPServer {
                 start();
             } else
                 LOGGER.error("----------"+e.getMessage()+"------------------");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
-    
+
+    private void processingKey(SelectionKey key) {
+        receivingManager.read(key, (ObjectInputStream command)->{
+            try {
+                var cmd = command.readUTF();
+                var log = command.readUTF();
+                var pas = command.readUTF();
+                var obj = command.readObject();
+                new Thread(()-> {
+                    var ret = executer.Execute(cmd, obj, log, pas);
+                    sendingManager.send((SocketChannel) key.channel(), (Object) ret);
+                }).start();
+            } catch (Exception e) {
+                System.out.println(e);
+                LOGGER.error(e.getMessage());
+                sendingManager.send((SocketChannel) key.channel(), (Object) "503");
+            }
+        });
+    }
+
+
     private void accept(SelectionKey key) {
         try {
             ServerSocketChannel serverSocketChannel = (ServerSocketChannel) key.channel();
@@ -114,5 +107,3 @@ public class TCPServer {
         }
     }
 }
-
-

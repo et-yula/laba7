@@ -1,59 +1,45 @@
 import commands.*;
-import managers.CollectionManager;
-import managers.CommandManager;
-import managers.DumpManager;
-import managers.TCPServer;
+import managers.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.*;
 import utility.Runner;
 import utility.StandardConsole;
 
-import java.util.Scanner;
-
 public class Main {
     private static final int PORT=14151;
     private static final Logger LOGGER = (Logger) LogManager.getLogger("Main");
-
     public static void main(String[] args) {
         var console = new StandardConsole();
-
-        var dumpManager = new DumpManager("test.csv", console);
-        var collectionManager = new CollectionManager(dumpManager);
-        if (!collectionManager.loadCollection()) { System.out.println("Коллекция не загружена!"); }
-
+        var dataBaseManager= new DataBaseManager("jdbc:postgresql://127.0.0.1:5432/studs", "s367177", "****************", console); //вместо звездочек пароль от базы данных на гелиосе
+        var dumpManager = new DumpManager(dataBaseManager, console);
+        if (!dumpManager.initializeTables()) {
+            System.exit(1); }
+        var userManager = new UserManager(dumpManager);
+        if (!userManager.initialize()) {
+            System.exit(1);
+        }
+        var collectionManager = new CollectionManager(dumpManager, userManager);
+        collectionManager.load();
         var commandManager = new CommandManager() {{
+            register("create_user", new CreateUser(userManager));
             register("add_if_max", new AddIfMax(collectionManager));
             register("info", new Info(collectionManager));
             register("show", new Show(collectionManager));
             register("add", new Add(collectionManager));
             register("clear", new Clear(collectionManager));
-            register("save", new Save(collectionManager));
             register("min_by_minimal_point", new MinByMinimalPoint(collectionManager));
             register("print_ascending", new PrintAscending(collectionManager));
             register("remove_greater", new RemoveGreater(collectionManager));
             register("remove_lower", new RemoveLower(collectionManager));
             register("remove_by_id", new RemoveById(collectionManager));
             register("update", new Update(collectionManager));
+            register("existence_user", new ExistenceUser(userManager));
             register("sum_of_minimal_point", new SumOfMinimalPoint(collectionManager));
         }};
-
-        var runner = new Runner(console, commandManager);
+        var runner = new Runner(console, commandManager, userManager);
 
         var tcpserver = new TCPServer(PORT, runner::executeCommand);
-        new Thread(() -> {
-            Scanner in = new Scanner(System.in);
-            while (true) {
-                System.out.print("$ ");
-                var t = in.nextLine();
-                if (t.equals("save"))
-                    commandManager.getCommands().get("save").execute(new String[]{"save", ""}, null);
-                if (t.equals("exit"))
-                    System.exit(0);
-            }
-        }).start();
         tcpserver.start();
-
-
     }
 }
 

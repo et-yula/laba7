@@ -32,7 +32,7 @@ public class RemoveGreater extends Command {
             console.println("* Введите лабораторную работу для сравнения:");
             LabWork receivedLabWork = Ask.askLabWork(console);
             if (receivedLabWork != null && receivedLabWork.validate()) {
-                console.println(tcpManager.sendAndGetMassage("remove_greater", receivedLabWork));
+                console.println(tcpManager.sendAndGetMessage("remove_greater", receivedLabWork));
                 return true;
             } else {
                 console.println("Поля лабораторной работы не валидны! Лабораторная работа не сравнима!");

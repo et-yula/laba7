@@ -26,7 +26,7 @@ public class Clear extends Command {
             console.println("Использование: '" + getName() + "'");
             return false;
         }
-        console.println(tcpManager.sendAndGetMassage("clear"));
+        console.println(tcpManager.sendAndGetMessage("clear"));
         return true;
     }
 }

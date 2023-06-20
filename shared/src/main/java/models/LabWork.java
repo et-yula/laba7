@@ -156,6 +156,5 @@ public class LabWork implements Validatable, Serializable {
         return null;
     }
     public int compareTo(Element element) {
-        return (int)(this.id - element.getId());
-    }
+        return (int)(this.id - element.getId());}
 }

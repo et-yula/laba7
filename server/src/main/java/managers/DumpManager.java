@@ -1,121 +1,70 @@
 package managers;
 
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+
+import models.Difficulty;
 import models.LabWork;
 import utility.Console;
+import utility.User;
+import java.sql.SQLException;
+import java.util.LinkedList;
 
-import java.io.*;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-
-/**
- * использует файл для сохранения и загрузки коллекции
- */
 public class DumpManager {
-    private final String fileName;
-    private final Console console;
+	private final DataBaseManager dataBaseManager;
+	private final Console console;
+	private final DataBaseUserManager dataBaseUserManager;
+	private final DataBaseLabWorkManager dataBaseLabWorkManager;
 
-    public DumpManager(String fileName, Console console) {
-        this.fileName = fileName;
-        this.console = console;
-    }
+	public DumpManager(DataBaseManager dataBaseManager, Console console) {
+		this.console = console;
+		this.dataBaseManager = dataBaseManager;
+		this.dataBaseLabWorkManager = new DataBaseLabWorkManager(dataBaseManager);
+		this.dataBaseUserManager = new DataBaseUserManager(dataBaseManager);
+	}
 
-    /**
-     * преобразует коллекцию в csv - строку
-     * @param collection - коллекция объектов
-     * @return csv - строка
-     */
-    private String collection2CSV(Collection<LabWork> collection) {
-        try {
-            StringWriter sw = new StringWriter();
-            CSVWriter csvWriter = new CSVWriter(sw, ';');
-            for (var e : collection) {
-                csvWriter.writeNext(LabWork.toArray(e));
-            }
-            String csv = sw.toString();
-            return csv;
-        } catch (Exception e) {
-            console.printError("Ошибка сериализации");
-            return null;
-        }
-    }
-    public void writeCollection(Collection<LabWork> collection) {
-        try {
-            var csv = collection2CSV(collection);
-            if (csv == null) return;
-            var bos = new BufferedOutputStream(new FileOutputStream(fileName));
-            try  {
-                bos.write(csv.getBytes());
-                bos.flush();
-                bos.close();
-                console.println("Коллекция успешно сохранена в файл!");
-            } catch (IOException e) {
-                console.printError("Неожиданная ошибка сохранения");
-            }
-        } catch (FileNotFoundException | NullPointerException e) {
-            console.printError("Файл не найден");
-        }
-    }
+	public boolean initializeTables() {
+		try {
+			if (!dataBaseManager.initialize()) { System.exit(1); }
+			
+			var stmt = dataBaseManager.getStatement();
+			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS LabWorkUser(id serial PRIMARY KEY, login text NOT NULL, password text NOT NULL);");
+			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Difficulty(id serial PRIMARY KEY, name varchar(40) NOT NULL);");
+			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Locations(id serial PRIMARY KEY, x INTEGER NOT NULL, y INTEGER NOT NULL, z INTEGER NOT NULL, name varchar(40));");
+			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Coordinates(id serial PRIMARY KEY, x INTEGER NOT NULL, y BIGINT NOT NULL);");
+			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Person(id serial PRIMARY KEY, name text NOT NULL, birthday timestamp NOT NULL, passportID text NOT NULL, id_location INTEGER REFERENCES Locations);");
+			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS LabWork(id SERIAL PRIMARY KEY, name text NOT NULL, id_coordinates INTEGER REFERENCES Coordinates NOT NULL, creationDate timestamp NOT NULL, minimalPoint BIGINT NOT NULL, id_difficulty INTEGER REFERENCES Difficulty, id_person INTEGER REFERENCES Person, id_user INTEGER REFERENCES LabWorkUser);");
+			stmt.close();
+			
+			var pstmt = dataBaseManager.getPreparedStatement("INSERT INTO Difficulty (id, name) VALUES (?, ?) ON CONFLICT (id) DO UPDATE SET name = excluded.name;");
+			for (Difficulty difficulty:Difficulty.values()) {
+				pstmt.setInt(1, difficulty.ordinal()+1);
+				pstmt.setString(2, difficulty.toString());
+				pstmt.executeUpdate();
+			}
+			return true;
+		} catch (SQLException e) {
+			console.printError(e.toString());
+			return false;
+		}
+	}
 
-    /**
-     * преобразует CSV-строку в коллекцию
-     * @param s - CSV-строка
-     * @return коллекция
-     */
-    private HashSet <LabWork> CSV2collection(String s) {
-        try {
-            StringReader sr = new StringReader(s);
-            CSVReader csvReader = new CSVReader(sr, ';');
-            HashSet <LabWork> lws = new HashSet<>();
-            String[] record = null;
-            while ((record = csvReader.readNext()) != null) {
-                LabWork lw = LabWork.fromArray(record);
-                if (lw == null) { console.printError("Запись "+Arrays.toString(record)+" не действительна"); continue; }
-                if (lw.validate())
-                    lws.add(lw);
-                else
-                    console.printError("Файл с колекцией содержит недействительные данные");
-            }
-            csvReader.close();
-            return lws;
-        } catch (Exception e) {
-            console.printError("Ошибка десериализации " + e);
-            return null;
-        }
-    }
+	public LinkedList<DataBaseLabWorkManager.LabWorkAndUserID> selectLabWork() {
+		return dataBaseLabWorkManager.select();
+	}
+	public boolean insertLabWork(LabWork labWork, long userID) {
+		return dataBaseLabWorkManager.insert(labWork, userID);
+	}
+	public boolean updateLabWork(LabWork labWork) {
+		return dataBaseLabWorkManager.update(labWork);
+	}
+	public boolean removeLabWork(long id) {
+		return dataBaseLabWorkManager.remove(id);
+	}
 
-    /**
-     * считывает коллекцию из файла
-     * @return считанная коллекция
-     */
-    public Collection<LabWork> readCollection() {
-        if (fileName != null && !fileName.isEmpty()) {
-            try (var bis = new BufferedInputStream(new FileInputStream(fileName))) {
-                var s  = new StringBuilder("");
-                int i;
-                while ((i = bis.read())!= -1) {
-                    s.append( (char) i);
-                    //s.append("\n");
-                }
-                HashSet <LabWork> collection = CSV2collection(s.toString());
-                if (collection != null) {
-                    console.println("Коллекция успешно загружена!");
-                    return collection;
-                } else
-                    console.printError("В загрузочном файле не обнаружена необходимая коллекция!");
-            } catch (FileNotFoundException exception) {
-                console.printError("Загрузочный файл не найден!");
-            } catch (IllegalStateException exception) {
-                console.printError("Непредвиденная ошибка!");
-                System.exit(0);
-            } catch (IOException e) {
-                console.printError("Ошибка при чтении данных из файла");
-            }
-        } else {
-            console.printError("Аргумент командной строки с загрузочным файлом не найден!");
-        }
-        return new HashSet<>();
-    }
+	public LinkedList<User> selectUser() { return dataBaseUserManager.select(); }
+	public boolean insertUser(User user) { return dataBaseUserManager.insert(user); }
+	public boolean updateUser(User user) { return dataBaseUserManager.update(user); }
 }
+

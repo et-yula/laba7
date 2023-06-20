@@ -13,6 +13,9 @@ public class TCPClient {
     private SocketChannel socketChannel;
     private ClientReceivingManager receivingManager = null;
     private ClientSendingManager sendingManager = null;
+
+    private String login = "";
+    private String password = "";
     // private Logger logger;
 
     public TCPClient(String host, int port) {
@@ -58,6 +61,11 @@ public class TCPClient {
         }
     }
 
+    public void login(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public SocketChannel getSocketChannel () {
         return this.socketChannel;
     }
@@ -65,6 +73,8 @@ public class TCPClient {
     public Object send (String s, Object obj) {
         try (var baos = new ByteArrayOutputStream(); var a=new ObjectOutputStream(baos)) {
             a.writeUTF(s);
+            a.writeUTF(login);
+            a.writeUTF(password);
             a.writeObject(obj);
             sendingManager.send(baos.toByteArray());
 
@@ -106,4 +116,3 @@ public class TCPClient {
         }
     }
 }
-

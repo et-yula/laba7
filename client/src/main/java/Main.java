@@ -4,6 +4,7 @@ import managers.TCPClient;
 import managers.TCPManager;
 import utility.Runner;
 import utility.StandardConsole;
+import utility.UserUtility;
 
 public class Main {
     private static final int PORT = 14151;
@@ -13,7 +14,10 @@ public class Main {
         var tcpclient = new TCPClient(SERVER_ADRESS, PORT);
         tcpclient.start();
         var tcpmanager = new TCPManager(tcpclient);
-
+        var userUtility = new UserUtility(tcpmanager, console);
+        if (!userUtility.tryLogin()) {
+            System.exit(1);
+        }
         var commandManager = new CommandManager() {{
             register("help", new Help(console, this));
             register("add_if_max", new AddIfMax(console, tcpmanager));

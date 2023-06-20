@@ -1,23 +1,46 @@
 package managers;
 
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.RecursiveTask;
 
 public class SendingManager {
+    private static final ForkJoinPool forkJoinPool = new ForkJoinPool();
     private static final Logger LOGGER = (Logger) LogManager.getLogger("managers.TCPServer");
 
     private final int PACKET_SIZE = 1024;
     private final int DATA_SIZE = PACKET_SIZE - 1;
 
+    public class senderClass extends RecursiveTask<Object> {
+        private final SocketChannel socketChannel;
+        private final Object obj;
+        public senderClass(SocketChannel socketChannel, Object obj) {
+            this.socketChannel = socketChannel;
+            this.obj = obj;
+        }
+        @Override
+        protected Object compute() {
+            try(var baos = new ByteArrayOutputStream(); var a=new ObjectOutputStream(baos)) {
+                a.writeObject(obj);
+                send(socketChannel, baos.toByteArray());
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            return null;
+        }
+    }
+
     public void send(SocketChannel socketChannel, byte[] data) {
-        // var logger = LoggerManager.getLogger(SendingManager.class);
         try {
             byte[][] ret = new byte[(int) Math.ceil(data.length / (double) DATA_SIZE)][DATA_SIZE];
 
@@ -49,5 +72,9 @@ public class SendingManager {
             } else
                 LOGGER.error(e.getMessage());
         }
+    }
+
+    public void send(SocketChannel socketChannel, Object obj) {
+        forkJoinPool.invoke(new senderClass(socketChannel, obj));
     }
 }

@@ -11,10 +11,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27dbaf72-30a0-4fd5-99cc-95d840b6a20c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/utility/UserUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/CreateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/commands/ExistenceUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/DataBaseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/DataBaseUserManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/managers/UserManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/utility/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/client_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/client_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/server_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/server_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/AddIfMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/AddIfMax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/Clear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/Info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/MinByMinimalPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/MinByMinimalPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/PrintAscending.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/PrintAscending.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/RemoveById.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/RemoveById.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/RemoveGreater.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/RemoveGreater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/RemoveLower.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/RemoveLower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/SumOfMinimalPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/SumOfMinimalPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/commands/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/managers/TCPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/managers/TCPClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/managers/TCPManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/managers/TCPManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/utility/Ask.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/utility/Ask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/AddIfMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/AddIfMax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/Clear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/Executable.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/Executable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/Info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/MinByMinimalPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/MinByMinimalPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/PrintAscending.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/PrintAscending.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/RemoveById.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/RemoveById.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/RemoveGreater.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/RemoveGreater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/RemoveLower.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/RemoveLower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/Save.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/SumOfMinimalPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/SumOfMinimalPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/commands/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/managers/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/managers/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/managers/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/managers/DumpManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/managers/DumpManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/managers/ReceivingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/managers/ReceivingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/managers/SendingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/managers/SendingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/managers/TCPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/managers/TCPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/utility/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/utility/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/models/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/models/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/models/LabWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/models/LabWork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/utility/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/utility/Response.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,15 +101,21 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/laba6&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/laba7&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laba7\server\src\main\java\managers" />
       <recent name="D:\laba6\server" />
     </key>
   </component>
@@ -119,7 +175,26 @@
       <workItem from="1683311478016" duration="2287000" />
       <workItem from="1683363903581" duration="8548000" />
       <workItem from="1684588302918" duration="4000" />
-      <workItem from="1684860796916" duration="1562000" />
+      <workItem from="1684860796916" duration="4450000" />
+      <workItem from="1685714337438" duration="1305000" />
+      <workItem from="1686223222974" duration="8225000" />
+      <workItem from="1686302936407" duration="2929000" />
+      <workItem from="1686765623976" duration="867000" />
+      <workItem from="1686769139456" duration="605000" />
+      <workItem from="1686769755853" duration="5551000" />
+      <workItem from="1686919879674" duration="6683000" />
+      <workItem from="1686931656739" duration="1342000" />
+      <workItem from="1686951409190" duration="2706000" />
+      <workItem from="1686998732408" duration="934000" />
+      <workItem from="1687000196606" duration="2208000" />
+      <workItem from="1687009718953" duration="14793000" />
+      <workItem from="1687091121088" duration="536000" />
+      <workItem from="1687091672600" duration="2054000" />
+      <workItem from="1687093739331" duration="3954000" />
+      <workItem from="1687099683659" duration="7255000" />
+      <workItem from="1687178141184" duration="8889000" />
+      <workItem from="1687191756934" duration="1695000" />
+      <workItem from="1687272826978" duration="947000" />
     </task>
     <task id="LOCAL-00001" summary="programming laboratory №6">
       <created>1683364002099</created>
@@ -135,11 +210,29 @@
       <option name="project" value="LOCAL" />
       <updated>1683379252356</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="programming laboratory №6">
+      <created>1684864266259</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684864266259</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -150,39 +243,179 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java</url>
-          <line>43</line>
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>155</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>158</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>159</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>160</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>162</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java</url>
-          <line>42</line>
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>163</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java</url>
-          <line>44</line>
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>164</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java</url>
-          <line>45</line>
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>165</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java</url>
-          <line>48</line>
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>166</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java</url>
-          <line>49</line>
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>168</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java</url>
-          <line>46</line>
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>170</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>172</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>169</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>171</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>175</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>173</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>174</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>176</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>178</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>179</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>180</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/managers/DataBaseLabWorkManager.java</url>
+          <line>181</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/managers/TCPClient.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/managers/TCPClient.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/managers/TCPManager.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/managers/TCPClient.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/managers/ClientSendingManager.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

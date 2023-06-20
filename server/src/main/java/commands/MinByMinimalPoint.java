@@ -3,6 +3,7 @@ package commands;
 import managers.CollectionManager;
 import models.LabWork;
 import utility.Response;
+import utility.User;
 
 /**
  * выводит любой объект из коллекции, значение поля minimalPoint которого является минимальным
@@ -19,7 +20,7 @@ public class MinByMinimalPoint extends Command {
      * @return успешность выполнения команды
      */
     @Override
-    public Response execute(String[] arguments, Object obj) {
+    public Response execute(String[] arguments, Object obj, User user) {
         if (!arguments[1].isEmpty()) {
             return new Response(400, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
         }

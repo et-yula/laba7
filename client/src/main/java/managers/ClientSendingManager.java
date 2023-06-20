@@ -19,7 +19,8 @@ public class ClientSendingManager {
         var t=10;
         for(;;) {
             try {
-                while (tcpClient.getSocketChannel().isConnectionPending()){
+                if (tcpClient.getSocketChannel().isConnectionPending()){
+                    //Thread.sleep(100);
                     tcpClient.getSocketChannel().finishConnect();
                 }
                 while (!tcpClient.isConnected()){
