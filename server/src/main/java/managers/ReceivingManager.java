@@ -14,12 +14,11 @@ import java.nio.channels.SocketChannel;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.function.Consumer;
 
 public class ReceivingManager {
     private static final Logger LOGGER = (Logger) LogManager.getLogger("managers.TCPServer");
-    private HashSet<SocketChannel> sessions = new HashSet<>();
+    private final HashSet<SocketChannel> sessions = new HashSet<>();
     private final HashMap<SocketAddress, byte[]> receivedData;
 
     public ReceivingManager(){
