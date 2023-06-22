@@ -29,7 +29,7 @@ public class DumpManager {
 			if (!dataBaseManager.initialize()) { System.exit(1); }
 			
 			var stmt = dataBaseManager.getStatement();
-			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS LabWorkUser(id serial PRIMARY KEY, login text NOT NULL, password text NOT NULL);");
+			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS LabWorkUser(id serial PRIMARY KEY, login text NOT NULL UNIQUE, password text NOT NULL);");
 			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Difficulty(id serial PRIMARY KEY, name varchar(40) NOT NULL);");
 			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Locations(id serial PRIMARY KEY, x INTEGER NOT NULL, y INTEGER NOT NULL, z INTEGER NOT NULL, name varchar(40));");
 			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Coordinates(id serial PRIMARY KEY, x INTEGER NOT NULL, y BIGINT NOT NULL);");
